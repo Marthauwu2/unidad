@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milca</title>
+</head>
+<body>
+    <style>
+
+        body{
+               font-size: 40px;
+              
+    background-color: rgb(206, 24, 24);
+             
+                                                                                     
+        }
+    
+    </style>
+   <p>rick y morty</p>
+   
+   
+    <div id="personajes"></div>
+    
+    <script>
+     
+        const fetchRick =  () => {
+            const url =https://rickandmortyapi.com/api/character;
+            {
+     
+           fetch(url)
+           .then(res => res.json())    
+           .then(data =>{
+            const personajes = document.getElementById('personajes');
+            data.results.forEach(characters => {
+                const charactersDiv = document.createElement('div');
+                charactersDiv.className = 'characters';
+    
+                const charactesrImg = document.createElement('img');
+                charactesrImg.src= characters.image;
+                charactesrImg.alt = characters.name;
+    
+                const charactersName = document.createElement('p');
+                charactersName.textContent = characters.name;
+    
+                charactersDiv.appendChild(charactesrImg);
+                charactersDiv.appendChild(charactersName);
+                personajes.appendChild(charactersDiv);
+            });
+            });
+        }
+    
+        }
+        fetchRick();
+    
+        </script>
+    </body>
+    </html>
+</body>
+</html>
